@@ -19,6 +19,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)UIButton *ceshiButton;
 @property(nonatomic,strong)RACCommand * loginCommond;
 
+@property (nonatomic, copy)NSString *userName;
+@property (nonatomic, copy)NSString *passWord;
+@property (nonatomic, assign)BOOL validLogin;
+/// 用户登录 为了减少View对viewModel的状态的监听 这里采用block回调来减少状态的处理
+- (void)loginSuccess:(void(^)(id json))success
+         failure:(void (^)(NSError *error))failure;
+
 @end
 
 NS_ASSUME_NONNULL_END

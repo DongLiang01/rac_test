@@ -15,6 +15,9 @@
 		3B12A96B265A5CC1000131D4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B12A96A265A5CC1000131D4 /* main.m */; };
 		3B12A975265A5CC1000131D4 /* rac_testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B12A974265A5CC1000131D4 /* rac_testTests.m */; };
 		3B12A980265A5CC1000131D4 /* rac_testUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B12A97F265A5CC1000131D4 /* rac_testUITests.m */; };
+		3B51B7E1267F7F5800184A51 /* DLLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B51B7E0267F7F5800184A51 /* DLLoginViewController.m */; };
+		3B51B7E4267F9CFE00184A51 /* RACLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B51B7E3267F9CFE00184A51 /* RACLoginViewController.m */; };
+		3B51B7E7267F9E1500184A51 /* RACLoginVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B51B7E6267F9E1500184A51 /* RACLoginVM.m */; };
 		6D0636A513BB5B4835A1300C /* libPods-rac_test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D0E2B1CE1D5C53DDE3942F /* libPods-rac_test.a */; };
 		749B382B265B52F200FEA353 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 749B382A265B52F200FEA353 /* SecondViewController.m */; };
 		749B383B265B7E0000FEA353 /* DLLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 749B383A265B7E0000FEA353 /* DLLoginModel.m */; };
@@ -56,6 +59,12 @@
 		3B12A97B265A5CC1000131D4 /* rac_testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = rac_testUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B12A97F265A5CC1000131D4 /* rac_testUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = rac_testUITests.m; sourceTree = "<group>"; };
 		3B12A981265A5CC1000131D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B51B7DF267F7F5800184A51 /* DLLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLLoginViewController.h; sourceTree = "<group>"; };
+		3B51B7E0267F7F5800184A51 /* DLLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLLoginViewController.m; sourceTree = "<group>"; };
+		3B51B7E2267F9CFE00184A51 /* RACLoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACLoginViewController.h; sourceTree = "<group>"; };
+		3B51B7E3267F9CFE00184A51 /* RACLoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACLoginViewController.m; sourceTree = "<group>"; };
+		3B51B7E5267F9E1500184A51 /* RACLoginVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACLoginVM.h; sourceTree = "<group>"; };
+		3B51B7E6267F9E1500184A51 /* RACLoginVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACLoginVM.m; sourceTree = "<group>"; };
 		749B3829265B52F200FEA353 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		749B382A265B52F200FEA353 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		749B3839265B7E0000FEA353 /* DLLoginModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLLoginModel.h; sourceTree = "<group>"; };
@@ -123,6 +132,12 @@
 				3B12A95F265A5CBD000131D4 /* ViewController.m */,
 				749B3829265B52F200FEA353 /* SecondViewController.h */,
 				749B382A265B52F200FEA353 /* SecondViewController.m */,
+				3B51B7E2267F9CFE00184A51 /* RACLoginViewController.h */,
+				3B51B7E3267F9CFE00184A51 /* RACLoginViewController.m */,
+				3B51B7E5267F9E1500184A51 /* RACLoginVM.h */,
+				3B51B7E6267F9E1500184A51 /* RACLoginVM.m */,
+				3B51B7DF267F7F5800184A51 /* DLLoginViewController.h */,
+				3B51B7E0267F7F5800184A51 /* DLLoginViewController.m */,
 				749B383F265B828100FEA353 /* DLLoginViewModel.h */,
 				749B3840265B828100FEA353 /* DLLoginViewModel.m */,
 				749B3839265B7E0000FEA353 /* DLLoginModel.h */,
@@ -328,9 +343,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				749B3841265B828100FEA353 /* DLLoginViewModel.m in Sources */,
+				3B51B7E4267F9CFE00184A51 /* RACLoginViewController.m in Sources */,
 				749B382B265B52F200FEA353 /* SecondViewController.m in Sources */,
 				3B12A960265A5CBD000131D4 /* ViewController.m in Sources */,
 				749B383B265B7E0000FEA353 /* DLLoginModel.m in Sources */,
+				3B51B7E7267F9E1500184A51 /* RACLoginVM.m in Sources */,
+				3B51B7E1267F7F5800184A51 /* DLLoginViewController.m in Sources */,
 				3B12A95A265A5CBD000131D4 /* AppDelegate.m in Sources */,
 				3B12A96B265A5CC1000131D4 /* main.m in Sources */,
 			);
