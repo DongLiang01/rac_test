@@ -94,25 +94,24 @@
 
 -(void)ceshiTongzhi{
 //    NSLog(@"第二个页面想走代理方法");
-//    self.model.name = @"liangting";
+    self.model.name = @"liangting";
+    
 //    [[NSNotificationCenter defaultCenter] postNotificationName:@"hahanihao" object:nil];
     
     ///请求数据
-    [self.viewModel.loginCommond2 execute:nil];
-    ///数据显示
-    self.viewModel.siginal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
-        
-        self.disposable = [[RACSignal interval:1 onScheduler:[RACScheduler mainThreadScheduler]] subscribeNext:^(NSDate * _Nullable x) {
-            [subscriber sendNext:@(self.maxNum)];
+    [[self.viewModel.loginCommond2.executionSignals switchToLatest] subscribeNext:^(id  _Nullable x) {
+        NSArray *array = x;
+        self.disposable = [[RACSignal interval:1 onScheduler:[RACScheduler currentScheduler]] subscribeNext:^(NSDate * _Nullable x) {
+            self.titleLabel.text = array[self.maxNum];
             self.maxNum++;
             if (self.maxNum == 5) {
                 [self.disposable dispose];
-                [subscriber sendCompleted];
             }
         }];
-        return nil;
     }];
-    self.viewModel.titleLabel = _titleLabel;
+    
+    [self.viewModel.loginCommond2 execute:nil];
+
 }
 
 -(DLLoginModel *)model{

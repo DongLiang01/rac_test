@@ -31,7 +31,6 @@
     [userNameTextField becomeFirstResponder];
     userNameTextField.delegate = self;
     [self.view addSubview:userNameTextField];
-//    [userNameTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     self.userNameTextField = userNameTextField;
     
     UITextField *passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 200, 300, 30)];
@@ -39,7 +38,6 @@
     passwordTextField.placeholder = @"请输入密码…";
     passwordTextField.secureTextEntry =  YES;
     passwordTextField.delegate = self;
-//    [passwordTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.view addSubview:passwordTextField];
     self.passwordTextField = passwordTextField;
     
@@ -50,7 +48,7 @@
     loginButton.userInteractionEnabled = NO;
     [[loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         ///在loginViewModel中进行登录操作
-        NSLog(@"登录按钮");
+        [self.viewModel.loginRequestCommand execute:nil];
     }];
     [self.view addSubview:loginButton];
     self.loginB = loginButton;
@@ -59,7 +57,7 @@
 }
 
 -(void)bindViewModel{
-    ///将两个信号合并：观察输入框的输入变化信号以及直接赋值text的信号
+    ///将两个信号合并：观察输入框的输入变化信号以及直接赋值text的信号，绑定
     RAC(self.viewModel,userName) = [RACSignal merge:@[RACObserve(self.userNameTextField, text),self.userNameTextField.rac_textSignal]];
     RAC(self.viewModel,passWord) = [RACSignal merge:@[RACObserve(self.passwordTextField, text),self.passwordTextField.rac_textSignal]];
     
@@ -74,6 +72,9 @@
             self.loginB.backgroundColor = UIColor.lightGrayColor;
         }
     }];
+    [[self.viewModel.loginRequestCommand.executionSignals switchToLatest] subscribeNext:^(id  _Nullable x) {
+        NSLog(@"%@",x);
+    }];
 }
 
 -(RACLoginVM *)viewModel{
@@ -83,15 +84,5 @@
     }
     return _viewModel;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

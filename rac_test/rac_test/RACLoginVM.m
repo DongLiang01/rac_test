@@ -31,6 +31,14 @@
                 return nil;
             }];
         }];
+        self.loginRequestCommand = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
+            return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                ///放登录请求
+                [subscriber sendNext:@"登录成功了"];
+                [subscriber sendCompleted];
+                return nil;
+            }];
+        }];
     }
     return self;
 }

@@ -40,11 +40,12 @@
     [self.view addSubview:self.loginButton];
     [self.view addSubview:self.RACLoginButton];
     @weakify(self)
+    
+    ///rac给按钮添加事件
     [[_blackButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         @strongify(self)
         SecondViewController *vc = [[SecondViewController alloc] init];
         vc.title = @"第二页";
-
         [[vc rac_signalForSelector:@selector(ceshiTongzhi)] subscribeNext:^(RACTuple * _Nullable x) {
             NSLog(@"第一页收到信号了");
             [self.viewModel.loginCommond execute:vc.model];
@@ -83,6 +84,11 @@
 //        NSLog(@"数据发生了变化:%@",x);
 //        [self->_blackButton setTitle:self->_scanTextField.text forState:UIControlStateNormal];
 //    }];
+//    ///第二种
+//    [RACObserve(_scanTextField, text) subscribeNext:^(id  _Nullable x) {
+//        NSLog(@"数据发生了变化:%@",x);
+//        [self->_blackButton setTitle:self->_scanTextField.text forState:UIControlStateNormal];
+//    }];
     
 //    ///通知
 //    [[[NSNotificationCenter defaultCenter] rac_addObserverForName:@"hahanihao" object:nil] subscribeNext:^(NSNotification * _Nullable x) {
@@ -93,11 +99,13 @@
 
 -(void)addTimer{
     @weakify(self)
+    ///RADispose是取消信号订阅时用的类，底层用的RACScheduler，一个信号调度器，线性队列，封装的gcd
     self.disposable = [[RACSignal interval:3.0 onScheduler:[RACScheduler mainThreadScheduler]] subscribeNext:^(NSDate * _Nullable x) {
         @strongify(self)
         self.maxNum++;
         NSLog(@"定时开始:%ld",self.maxNum);
         if (self.maxNum == 10) {
+            ///取消信号的订阅
             [self.disposable dispose];
         }
     }];
@@ -136,7 +144,7 @@
 -(UIButton *)RACLoginButton{
     if (!_RACLoginButton) {
         _RACLoginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        _RACLoginButton.frame = CGRectMake(50, 250, 110, 30);
+        _RACLoginButton.frame = CGRectMake(50, 250, 130, 30);
         _RACLoginButton.backgroundColor = UIColor.whiteColor;
         
         [_RACLoginButton setTitle:@"RAC登录页面" forState:UIControlStateNormal];

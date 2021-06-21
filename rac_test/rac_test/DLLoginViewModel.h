@@ -22,9 +22,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property(nonatomic,strong)RACCommand * loginCommond2;
 @property(nonatomic,copy)NSArray *dataArray;
-@property(nonatomic,strong)UILabel *titleLabel;
-@property(nonatomic,strong)RACSignal *siginal;
-@property(nonatomic,strong)RACDisposable *disposable;
+//@property(nonatomic,strong)UILabel *titleLabel;
+//@property(nonatomic,strong)RACSignal *siginal;
+//@property(nonatomic,strong)RACDisposable *disposable;
 
 @property (nonatomic, copy)NSString *userName;
 @property (nonatomic, copy)NSString *passWord;

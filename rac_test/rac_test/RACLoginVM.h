@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 按钮能否点击
 @property (nonatomic, strong) RACCommand *validLoginCommand;
+///登录请求
+@property (nonatomic, strong) RACCommand *loginRequestCommand;
 
 @end
 

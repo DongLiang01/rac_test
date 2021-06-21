@@ -34,22 +34,16 @@
         ///第二个页面进行数据处理
         self.dataArray = @[@"你好",@"狗狗币",@"要",@"涨到",@"1美元"];
         return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+            [subscriber sendNext:self.dataArray];
+            [subscriber sendCompleted];
             return nil;
         }];
     }];
     
 }
 
--(void)setTitleLabel:(UILabel *)titleLabel{
-    _titleLabel = titleLabel;
-    @weakify(self)
-    [self.siginal subscribeNext:^(id  _Nullable x) {
-        @strongify(self)
-        NSInteger idx = [x integerValue];
-        self.titleLabel.text = self.dataArray[idx];
-    }];
-}
 
+///登录方法
 - (void)loginSuccess:(void (^)(id _Nonnull))success failure:(void (^)(NSError * _Nonnull))failure{
     if (self.userName.length <= 0) {
         NSLog(@"请输入用户名");
