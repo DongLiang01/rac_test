@@ -10,6 +10,8 @@
 #import <ReactiveObjC.h>
 #import "SecondViewController.h"
 #import "DLLoginViewModel.h"
+#import "DLLoginViewController.h"
+#import "RACLoginViewController.h"
 
 @interface ViewController ()
 
@@ -19,6 +21,8 @@
 @property (nonatomic, assign)NSInteger maxNum;
 
 @property (nonatomic, strong)DLLoginViewModel *viewModel;
+@property (nonatomic, strong)UIButton *loginButton;
+@property (nonatomic, strong)UIButton *RACLoginButton;
 
 @end
 
@@ -33,11 +37,13 @@
     
     [self.view addSubview:self.blackButton];
     [self.view addSubview:self.scanTextField];
+    [self.view addSubview:self.loginButton];
+    [self.view addSubview:self.RACLoginButton];
     @weakify(self)
     [[_blackButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         @strongify(self)
         SecondViewController *vc = [[SecondViewController alloc] init];
-        vc.title = @"登录页面";
+        vc.title = @"第二页";
 
         [[vc rac_signalForSelector:@selector(ceshiTongzhi)] subscribeNext:^(RACTuple * _Nullable x) {
             NSLog(@"第一页收到信号了");
@@ -107,6 +113,42 @@
         [_blackButton setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
     }
     return _blackButton;
+}
+
+-(UIButton *)loginButton{
+    if (!_loginButton) {
+        _loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _loginButton.frame = CGRectMake(50, 200, 80, 30);
+        _loginButton.backgroundColor = UIColor.whiteColor;
+        
+        [_loginButton setTitle:@"登录页面" forState:UIControlStateNormal];
+        [_loginButton setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
+        @weakify(self)
+        [[_loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+            @strongify(self)
+            DLLoginViewController *vc = [[DLLoginViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+    }
+    return _loginButton;
+}
+
+-(UIButton *)RACLoginButton{
+    if (!_RACLoginButton) {
+        _RACLoginButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _RACLoginButton.frame = CGRectMake(50, 250, 110, 30);
+        _RACLoginButton.backgroundColor = UIColor.whiteColor;
+        
+        [_RACLoginButton setTitle:@"RAC登录页面" forState:UIControlStateNormal];
+        [_RACLoginButton setTitleColor:UIColor.blackColor forState:UIControlStateNormal];
+        @weakify(self)
+        [[_RACLoginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+            @strongify(self)
+            RACLoginViewController *vc = [[RACLoginViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }];
+    }
+    return _RACLoginButton;
 }
 
 -(UITextField *)scanTextField{

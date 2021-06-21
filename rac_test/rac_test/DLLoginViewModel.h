@@ -19,11 +19,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)UIButton *ceshiButton;
 @property(nonatomic,strong)RACCommand * loginCommond;
 
+
 @property(nonatomic,strong)RACCommand * loginCommond2;
 @property(nonatomic,copy)NSArray *dataArray;
 @property(nonatomic,strong)UILabel *titleLabel;
 @property(nonatomic,strong)RACSignal *siginal;
 @property(nonatomic,strong)RACDisposable *disposable;
+
+@property (nonatomic, copy)NSString *userName;
+@property (nonatomic, copy)NSString *passWord;
+@property (nonatomic, assign)BOOL validLogin;
+/// 用户登录 为了减少View对viewModel的状态的监听 这里采用block回调来减少状态的处理
+- (void)loginSuccess:(void(^)(id json))success
+         failure:(void (^)(NSError *error))failure;
 
 @end
 
