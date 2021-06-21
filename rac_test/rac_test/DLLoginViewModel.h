@@ -19,6 +19,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)UIButton *ceshiButton;
 @property(nonatomic,strong)RACCommand * loginCommond;
 
+@property(nonatomic,strong)RACCommand * loginCommond2;
+@property(nonatomic,copy)NSArray *dataArray;
+@property(nonatomic,strong)UILabel *titleLabel;
+@property(nonatomic,strong)RACSignal *siginal;
+@property(nonatomic,strong)RACDisposable *disposable;
+
 @end
 
 NS_ASSUME_NONNULL_END

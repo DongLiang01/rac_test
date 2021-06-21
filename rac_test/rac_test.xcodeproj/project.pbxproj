@@ -19,6 +19,9 @@
 		749B382B265B52F200FEA353 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 749B382A265B52F200FEA353 /* SecondViewController.m */; };
 		749B383B265B7E0000FEA353 /* DLLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 749B383A265B7E0000FEA353 /* DLLoginModel.m */; };
 		749B3841265B828100FEA353 /* DLLoginViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 749B3840265B828100FEA353 /* DLLoginViewModel.m */; };
+		749B39222664D90400FEA353 /* ResponsePersonalInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 749B39212664D90400FEA353 /* ResponsePersonalInformation.m */; };
+		749B392A2664DADB00FEA353 /* PersonalInformationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 749B39292664DADB00FEA353 /* PersonalInformationTests.m */; };
+		749B392E2664DE6500FEA353 /* ResponsePersonalInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 749B39212664D90400FEA353 /* ResponsePersonalInformation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +65,9 @@
 		749B383A265B7E0000FEA353 /* DLLoginModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLLoginModel.m; sourceTree = "<group>"; };
 		749B383F265B828100FEA353 /* DLLoginViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DLLoginViewModel.h; sourceTree = "<group>"; };
 		749B3840265B828100FEA353 /* DLLoginViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DLLoginViewModel.m; sourceTree = "<group>"; };
+		749B39202664D90400FEA353 /* ResponsePersonalInformation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResponsePersonalInformation.h; sourceTree = "<group>"; };
+		749B39212664D90400FEA353 /* ResponsePersonalInformation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResponsePersonalInformation.m; sourceTree = "<group>"; };
+		749B39292664DADB00FEA353 /* PersonalInformationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalInformationTests.m; sourceTree = "<group>"; };
 		9D4F07661AE9A947899822A5 /* Pods-rac_test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rac_test.debug.xcconfig"; path = "Target Support Files/Pods-rac_test/Pods-rac_test.debug.xcconfig"; sourceTree = "<group>"; };
 		B5D0E2B1CE1D5C53DDE3942F /* libPods-rac_test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rac_test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -127,6 +133,8 @@
 				749B3840265B828100FEA353 /* DLLoginViewModel.m */,
 				749B3839265B7E0000FEA353 /* DLLoginModel.h */,
 				749B383A265B7E0000FEA353 /* DLLoginModel.m */,
+				749B39202664D90400FEA353 /* ResponsePersonalInformation.h */,
+				749B39212664D90400FEA353 /* ResponsePersonalInformation.m */,
 				3B12A961265A5CBD000131D4 /* Main.storyboard */,
 				3B12A964265A5CC1000131D4 /* Assets.xcassets */,
 				3B12A966265A5CC1000131D4 /* LaunchScreen.storyboard */,
@@ -140,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				3B12A974265A5CC1000131D4 /* rac_testTests.m */,
+				749B39292664DADB00FEA353 /* PersonalInformationTests.m */,
 				3B12A976265A5CC1000131D4 /* Info.plist */,
 			);
 			path = rac_testTests;
@@ -330,6 +339,7 @@
 				749B3841265B828100FEA353 /* DLLoginViewModel.m in Sources */,
 				749B382B265B52F200FEA353 /* SecondViewController.m in Sources */,
 				3B12A960265A5CBD000131D4 /* ViewController.m in Sources */,
+				749B39222664D90400FEA353 /* ResponsePersonalInformation.m in Sources */,
 				749B383B265B7E0000FEA353 /* DLLoginModel.m in Sources */,
 				3B12A95A265A5CBD000131D4 /* AppDelegate.m in Sources */,
 				3B12A96B265A5CC1000131D4 /* main.m in Sources */,
@@ -340,6 +350,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				749B392E2664DE6500FEA353 /* ResponsePersonalInformation.m in Sources */,
+				749B392A2664DADB00FEA353 /* PersonalInformationTests.m in Sources */,
 				3B12A975265A5CC1000131D4 /* rac_testTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
