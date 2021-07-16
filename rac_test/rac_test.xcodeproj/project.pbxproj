@@ -77,6 +77,7 @@
 		749B39202664D90400FEA353 /* ResponsePersonalInformation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ResponsePersonalInformation.h; sourceTree = "<group>"; };
 		749B39212664D90400FEA353 /* ResponsePersonalInformation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ResponsePersonalInformation.m; sourceTree = "<group>"; };
 		749B39292664DADB00FEA353 /* PersonalInformationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PersonalInformationTests.m; sourceTree = "<group>"; };
+		74F127E826A01D230055615A /* RACLoginVM+ceshi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RACLoginVM+ceshi.h"; sourceTree = "<group>"; };
 		9D4F07661AE9A947899822A5 /* Pods-rac_test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-rac_test.debug.xcconfig"; path = "Target Support Files/Pods-rac_test/Pods-rac_test.debug.xcconfig"; sourceTree = "<group>"; };
 		B5D0E2B1CE1D5C53DDE3942F /* libPods-rac_test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-rac_test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -142,6 +143,7 @@
 				3B51B7E3267F9CFE00184A51 /* RACLoginViewController.m */,
 				3B51B7E5267F9E1500184A51 /* RACLoginVM.h */,
 				3B51B7E6267F9E1500184A51 /* RACLoginVM.m */,
+				74F127E826A01D230055615A /* RACLoginVM+ceshi.h */,
 				3B51B7DF267F7F5800184A51 /* DLLoginViewController.h */,
 				3B51B7E0267F7F5800184A51 /* DLLoginViewController.m */,
 				749B383F265B828100FEA353 /* DLLoginViewModel.h */,

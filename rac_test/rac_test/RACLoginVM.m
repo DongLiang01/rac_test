@@ -7,11 +7,14 @@
 //
 
 #import "RACLoginVM.h"
+#import "RACLoginVM+ceshi.h"
 
 @implementation RACLoginVM
 
 -(instancetype)init{
     if (self = [super init]) {
+        
+        self.phone = @"124";
         
         [RACObserve(self, userName) subscribeNext:^(id  _Nullable x) {
             NSLog(@"用户明发生了变化%@",x);

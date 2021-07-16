@@ -8,6 +8,7 @@
 
 #import "RACLoginViewController.h"
 #import "RACLoginVM.h"
+//#import "RACLoginVM+ceshi.h"
 
 @interface RACLoginViewController ()<UITextFieldDelegate>
 
@@ -15,6 +16,8 @@
 @property (nonatomic, strong)UITextField *userNameTextField;
 @property (nonatomic, strong)UITextField *passwordTextField;
 @property (nonatomic, strong)UIButton *loginB;
+
+@property (nonatomic, assign)int number;
 
 @end
 
@@ -54,6 +57,34 @@
     self.loginB = loginButton;
     
     [self bindViewModel];
+    
+    NSLog(@"当前时间%@",[self getCurrentTimes]);
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"notification1" object:nil];
+    
+    
+    NSLog(@"并不是私有属性：%@",_viewModel.phone);
+}
+
+-(NSString*)getCurrentTimes{
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+
+    // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+
+    //现在时间,你可以输出来看下是什么格式
+
+    NSDate *datenow = [NSDate date];
+
+    //----------将nsdate按formatter格式转成nsstring
+
+    NSString *currentTimeString = [formatter stringFromDate:datenow];
+
+    NSLog(@"currentTimeString =  %@",currentTimeString);
+
+    return currentTimeString;
+
 }
 
 -(void)bindViewModel{
@@ -81,6 +112,7 @@
     if (!_viewModel) {
         _viewModel = [[RACLoginVM alloc] init];
         _viewModel.validLogin = NO;
+        _viewModel.phone = @"123333";
     }
     return _viewModel;
 }
