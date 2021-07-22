@@ -17,7 +17,7 @@
         self.phone = @"124";
         
         [RACObserve(self, userName) subscribeNext:^(id  _Nullable x) {
-            NSLog(@"用户明发生了变化%@",x);
+//            NSLog(@"用户明发生了变化%@",x);
             [self checkSubmitEnable];
         }];
         [RACObserve(self, passWord) subscribeNext:^(id  _Nullable x) {

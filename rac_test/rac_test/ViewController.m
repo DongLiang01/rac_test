@@ -95,12 +95,16 @@
 //        NSLog(@"使用arc通知");
 //    }];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getNotification:) name:nil object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getNotification:) name:nil object:@"nihao"];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getNotification1:) name:@"ceshi" object:nil];
     
 }
 
 -(void)getNotification:(NSNotification *)sender{
-    NSLog(@"神奇的收到了通知");
+    NSLog(@"神奇的收到了通知1%@",sender.object);
+}
+-(void)getNotification1:(NSNotification *)sender{
+    NSLog(@"神奇的收到了通知2%@",sender.object);
 }
 
 -(void)addTimer{

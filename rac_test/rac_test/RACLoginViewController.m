@@ -19,6 +19,8 @@
 
 @property (nonatomic, assign)int number;
 
+@property (atomic, copy)NSString *name;
+
 @end
 
 @implementation RACLoginViewController
@@ -58,11 +60,49 @@
     
     [self bindViewModel];
     
-    NSLog(@"当前时间%@",[self getCurrentTimes]);
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"notification1" object:nil];
+//    NSLog(@"当前时间%@",[self getCurrentTimes]);
+//    [[NSNotificationCenter defaultCenter] postNotificationName:@"ceshi" object:@"nihao"];
+////    _viewModel.phone = @"12345";
+//    NSLog(@"并不是私有属性：%@",_viewModel.phone);
     
+    NSLock *lock = [[NSLock alloc] init];
+    dispatch_semaphore_t sem = dispatch_semaphore_create(1);
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        while (1) {
+//        NSLog(@"1");
+//            [lock lock];
+        dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+            self.name = @"BOb";
+//            [lock unlock];
+        dispatch_semaphore_signal(sem);
+            NSLog(@"Bob is %@",self.name);
+        }
+    });
     
-    NSLog(@"并不是私有属性：%@",_viewModel.phone);
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        while (1) {
+//        NSLog(@"2");
+//            [lock lock];
+        dispatch_semaphore_wait(sem, DISPATCH_TIME_FOREVER);
+            self.name = @"Tim";
+//            [lock unlock];
+        dispatch_semaphore_signal(sem);
+            NSLog(@"Tim is %@",self.name);
+        }
+    });
+    
+//    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+//        while (1) {
+//            if (![self.name isEqualToString:@"Tim就打开了的煎熬开了多久阿卡丽进度款进度款撒谎的卡不到祭敖包搬家啊三八节成本加快柴柴789 10 11"] && ![self.name isEqualToString:@"BOb的点击阿卡丽的煎熬是快乐的骄傲肯德基奥施康定金阿奎的敬爱的就爱上打击嗲师大会带回123456"]) {
+//                NSLog(@"发生了读写不安全:%@,%d,%d",self.name,![self.name isEqualToString:@"Tim就打开了的煎熬开了多久阿卡丽进度款进度款撒谎的卡不到祭敖包搬家啊三八节成本加快柴柴789 10 11"],![self.name isEqualToString:@"BOb的点击阿卡丽的煎熬是快乐的骄傲肯德基奥施康定金阿奎的敬爱的就爱上打击嗲师大会带回123456"]);
+//            }
+//        }
+//    });
+    
+}
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    
 }
 
 -(NSString*)getCurrentTimes{
