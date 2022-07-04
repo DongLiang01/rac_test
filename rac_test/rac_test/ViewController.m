@@ -28,6 +28,16 @@
 
 @implementation ViewController
 
+-(void)test{
+    RACSubject *signal = [RACSubject subject];
+    [signal sendNext:@"1"];
+    [signal sendNext:@"2"];
+    [signal subscribeNext:^(id  _Nullable x) {
+        NSLog(@"监听到%@",x);
+    }];
+    [signal sendNext:@"3"];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -35,23 +45,29 @@
     self.view.backgroundColor = UIColor.orangeColor;
     _maxNum = 0;
     
+    [self test];
+    
     [self.view addSubview:self.blackButton];
     [self.view addSubview:self.scanTextField];
     [self.view addSubview:self.loginButton];
     [self.view addSubview:self.RACLoginButton];
-    @weakify(self)
+//    @weakify[(self)
+             
+    [[[_blackButton rac_signalForControlEvents:UIControlEventTouchUpInside] throttle:2] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        NSLog(@"点击黑色按钮");
+    }];
     
     ///rac给按钮添加事件
-    [[_blackButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
-        @strongify(self)
-        SecondViewController *vc = [[SecondViewController alloc] init];
-        vc.title = @"第二页";
-        [[vc rac_signalForSelector:@selector(ceshiTongzhi)] subscribeNext:^(RACTuple * _Nullable x) {
-            NSLog(@"第一页收到信号了");
-            [self.viewModel.loginCommond execute:vc.model];
-        }];
-        [self.navigationController pushViewController:vc animated:YES];
-    }];
+//    [[_blackButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+//        @strongify(self)
+//        SecondViewController *vc = [[SecondViewController alloc] init];
+//        vc.title = @"第二页";
+//        [[vc rac_signalForSelector:@selector(ceshiTongzhi)] subscribeNext:^(RACTuple * _Nullable x) {
+//            NSLog(@"第一页收到信号了");
+//            [self.viewModel.loginCommond execute:vc.model];
+//        }];
+//        [self.navigationController pushViewController:vc animated:YES];
+//    }];
     
     self.viewModel.ceshiButton = self.blackButton;
     
@@ -144,12 +160,23 @@
         @weakify(self)
         [[_loginButton rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
             @strongify(self)
+                       
             DLLoginViewController *vc = [[DLLoginViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
+            
         }];
     }
     return _loginButton;
 }
+
+//-(instancetype)singInSigbal{
+//    return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+//        NSLog(@"登录成功");
+//        [subscriber sendNext:@(1)];
+//        [subscriber sendCompleted];
+//        return nil;
+//    }];
+//}
 
 -(UIButton *)RACLoginButton{
     if (!_RACLoginButton) {
