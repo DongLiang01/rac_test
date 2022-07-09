@@ -27,6 +27,7 @@
     NSLog(@"test1");
     NSLog(@"test5");
     NSLog(@"test6");
+    NSLog(@"test7");
     return YES;
 }
 
