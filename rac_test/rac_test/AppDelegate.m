@@ -25,6 +25,7 @@
     [self.window makeKeyAndVisible];
     
     NSLog(@"test1");
+    NSLog(@"test5");
     
     return YES;
 }
