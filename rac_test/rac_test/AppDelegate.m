@@ -29,7 +29,6 @@
     NSLog(@"test6");
     NSLog(@"test7");
     NSLog(@"test8");
-    NSLog(@"tets9");
     return YES;
 }
 
