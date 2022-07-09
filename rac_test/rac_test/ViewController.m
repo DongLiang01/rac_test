@@ -43,6 +43,7 @@
     // Do any additional setup after loading the view.
     
     NSLog(@"test2");
+    NSLog(@"test5");
     self.view.backgroundColor = UIColor.orangeColor;
     _maxNum = 0;
     
