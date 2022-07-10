@@ -24,6 +24,13 @@
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
+    NSLog(@"test1");
+    NSLog(@"test5");
+    NSLog(@"test6");
+    NSLog(@"test7");
+    NSLog(@"test8");
+    NSLog(@"tets9");
+    NSLog(@"tets10");
     return YES;
 }
 
