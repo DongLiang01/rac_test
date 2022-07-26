@@ -23,6 +23,7 @@
 
 -(void)dealloc{
     [self.loginViewModel removeObserver:self forKeyPath:@"validLogin"];
+    NSLog(@"test11");
 }
 
 - (void)viewDidLoad {
