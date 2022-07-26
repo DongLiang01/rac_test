@@ -23,6 +23,8 @@
 
 -(void)dealloc{
     NSLog(@"第二页被释放");
+    NSLog(@"test1");
+    NSLog(@"test1");
 }
 
 - (void)viewDidLoad {
