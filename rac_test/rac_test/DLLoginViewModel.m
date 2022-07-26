@@ -13,6 +13,7 @@
 -(instancetype)init{
     if (self = [super init]) {
         [self setup];
+        NSLog(@"33");
     }
     return self;
 }
