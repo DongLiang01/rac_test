@@ -14,7 +14,7 @@
 -(instancetype)init{
     if (self = [super init]) {
         
-        self.phone = @"124";
+        self.phone = @"1243";
         
         [RACObserve(self, userName) subscribeNext:^(id  _Nullable x) {
 //            NSLog(@"用户明发生了变化%@",x);
